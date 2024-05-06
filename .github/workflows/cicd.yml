@@ -6,6 +6,11 @@ on:
 
   workflow_dispatch:
 
+env:
+  CI_CD_AS1_DEVOPS: ${{ secrets.CI_CD_AS1_DEVOPS }}
+  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
 jobs:
   build-job:
     runs-on: ubuntu-latest
@@ -49,7 +54,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.CI_CD_AS1_DEVOPS }}
+          github_token: ${{ env.CI_CD_AS1_DEVOPS }}
           publish_dir: ./build
       - name: Get code
         uses: actions/checkout@v4
