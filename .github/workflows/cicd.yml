@@ -55,7 +55,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Notificate via Telegram
         run: |
-          chmod 745 bot_tegram.sh
-          bot_tegram.sh
+          chmod 745 bot_telegram.sh
+          bot_telegram.sh
       - name: closing
         run: echo "Deploy Finalizado!"
