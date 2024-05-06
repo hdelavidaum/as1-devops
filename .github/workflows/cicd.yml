@@ -51,5 +51,10 @@ jobs:
         with:
           github_token: ${{ secrets.CI_CD_AS1_DEVOPS }}
           publish_dir: ./build
+      - name: Notificate via Telegram
+        uses: actions/checkout@v4
+        run: |
+          chmod 745 bot_tegram.sh
+          bot_tegram.sh
       - name: closing
         run: echo "Deploy Finalizado!"
