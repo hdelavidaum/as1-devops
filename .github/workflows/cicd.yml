@@ -10,8 +10,8 @@ env:
   CI_CD_AS1_DEVOPS: ${{ secrets.CI_CD_AS1_DEVOPS }}
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-  DOCKER_HUB_USERNAME: ${{ screts.DOCKER_HUB_USERNAME }}
-  DOCKER_HUB_PASSWORD: ${{ screts.DOCKER_HUB_PASSWORD }}
+  DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+  DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
 jobs:
   build-job:
@@ -72,6 +72,7 @@ jobs:
 
   push-image-to-docker-hub-job:
     name: Push Image to Docker Hub
+    needs: deploy-job
     runs-on: ubuntu-latest
     permissions:
       packages: write
