@@ -33,6 +33,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: node ./src/test.js
+      - uses: AppThreat/sast-scan-action@master
+        with:
+          type: "nodejs"
 
   deploy-job:
     needs: test-job
